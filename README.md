@@ -75,28 +75,7 @@ Once running, interactive docs are available at `http://localhost:8000/docs`.
 
 ## Architecture
 
-```
-Alpaca API ──────┐
-                 ▼
-           ingestion/               ┌─────────────────────┐
-           fetch_prices.py  ──────► │                     │
-                                    │   PostgreSQL 16      │
-           Ken French Lib           │                     │
-           fetch_factors.py ──────► │  prices             │
-                                    │  factors            │
-           compute_metrics.py       │  metrics            │
-           models/beta.py    ──────► │  beta_decompositions│
-                                    │                     │
-                                    └──────────┬──────────┘
-                                               │
-                                               ▼
-                                         api/main.py
-                                         FastAPI app
-                                               │
-                              ┌────────────────┼────────────────┐
-                              ▼                ▼                ▼
-                         /health        /metrics/{ticker}  /metrics/{ticker}/beta
-```
+![](imgs/Architecture_dgm_nanoBananaMade.png)
 
 ---
 
