@@ -1,0 +1,85 @@
+# =========================
+# 🐍 Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+uv.lock
+uv.lock.*
+
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# =========================
+# 🧪 Testing & coverage
+# =========================
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# =========================
+# 🧹 Linting / tooling
+# =========================
+.ruff_cache/
+.mypy_cache/
+
+# =========================
+# 🔐 Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# 🗄️ Database / local data
+# =========================
+*.db
+*.sqlite3
+
+# Your project-specific data cache
+data/
+*.csv
+*.parquet
+
+# =========================
+# 🐳 Docker
+# =========================
+*.log
+docker-compose.override.yml
+
+# =========================
+# 🖥️ OS / Editor junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# =========================
+# 🔁 Git / misc
+# =========================
+*.swp
+*.swo
+*~
+
+# =========================
+# Agentic Development
+# =========================
+AGENT.md
+CLAUDE.md
+STRUCTURE.md
