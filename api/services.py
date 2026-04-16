@@ -101,3 +101,19 @@ def ticker_exists(db: Session, ticker: str) -> bool:
     return (
         db.query(Price).filter(Price.ticker == ticker.upper()).first() is not None
     )
+
+
+def get_prices(db: Session, ticker: str) -> list[Price]:
+    """Return OHLCV price history for *ticker*, oldest first."""
+    return (
+        db.query(Price)
+        .filter(Price.ticker == ticker.upper())
+        .order_by(Price.date.asc())
+        .all()
+    )
+
+
+def list_tickers(db: Session) -> list[str]:
+    """Return distinct tickers that have price data."""
+    rows = db.execute(text("SELECT DISTINCT ticker FROM prices ORDER BY ticker")).fetchall()
+    return [r[0] for r in rows]

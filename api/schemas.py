@@ -54,3 +54,7 @@ class VolatilityResponse(BaseModel):
     ticker: str
     window: int
     series: list[VolatilityPoint]
+
+
+class TickerListResponse(BaseModel):
+    tickers: list[str]

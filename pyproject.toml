@@ -18,6 +18,7 @@ dependencies = [
     "alpaca-py>=0.33",
     "tenacity>=9.0",
     "pytz>=2026.1.post1",
+    "apscheduler>=3.10",
 ]
 
 [project.optional-dependencies]

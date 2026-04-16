@@ -26,5 +26,23 @@ services:
       db:
         condition: service_healthy
 
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+  scheduler:
+    build: .
+    command: ["uv", "run", "python", "-m", "ingestion.scheduler"]
+    env_file:
+      - path: .env
+        required: false
+    depends_on:
+      db:
+        condition: service_healthy
+
 volumes:
   pgdata:

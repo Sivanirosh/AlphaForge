@@ -75,6 +75,12 @@ def fetch_and_store(
                 rows_inserted += result.rowcount
         db.commit()
         logger.info("Inserted %d price rows for %s", rows_inserted, tickers)
+
+        from api.services import compute_and_store_metrics
+
+        for symbol in tickers:
+            metric_count = compute_and_store_metrics(db, symbol)
+            logger.info("Computed %d metric rows for %s", metric_count, symbol)
     finally:
         db.close()
 
